@@ -5,6 +5,7 @@ import { StatusObject, toStatusObject, RED, YELLOW, GREEN } from './status';
 export interface BackendFarmObject {
   id: number,
   name: string,
+  measurement?: any[],
   status: string,
   timestamp: number,
 }

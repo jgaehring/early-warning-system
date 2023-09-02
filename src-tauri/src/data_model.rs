@@ -5,6 +5,7 @@ use serde::{Serialize, Deserialize};
 pub struct Farm {
     pub id: usize,
     pub name: String,
+    pub measurements: Option<Vec<Measurement>>,
     pub status: Status,
     pub timestamp: usize,
 }
@@ -31,24 +32,27 @@ pub struct Land {
     pub measurements: Vec<Measurement>
 }
 
+#[derive(Clone, Serialize, Deserialize)]
 pub enum Measurement {
     Quantitative(Quantitative),  
     Qualitative(Qualitative), 
 }
   
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Quantitative {
     pub id: usize,
     pub kind: String,
     pub value: f32,
-    pub date: NaiveDate,
+    // pub date: NaiveDate,
 }
   
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Qualitative {
     pub id: usize,
     pub kind: String,
     pub value: String,
     pub note: String,
-    pub date: NaiveDate,
+    // pub date: NaiveDate,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
